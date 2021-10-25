@@ -3,9 +3,9 @@ import { Server } from 'socket.io'
 
 import { App } from './src/app'
 import { config } from './src/core/config/environment'
-import { messagesRoutes } from './src/api/routes/messages.routes'
-import { authRoutes } from './src/api/routes/auth.routes'
-import { usersRoutes } from './src/api/routes/users.routes'
+import { messagesRoutes } from './src/api/routes/MessagesRoutes'
+import { authRoutes } from './src/api/routes/AuthRoutes'
+import { usersRoutes } from './src/api/routes/UsersRoutes'
 
 const appInstance = new App().routes([
   usersRoutes,

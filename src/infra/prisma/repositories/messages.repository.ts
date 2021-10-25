@@ -31,7 +31,6 @@ export class MessagesRepository implements IMessagesRepository {
       text: message,
       user_id
     }
-
     const createdMessage = await this.prismaClient.message.create({
       data,
       include: {

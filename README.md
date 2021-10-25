@@ -23,7 +23,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🚀 Como executar
 
-> Obs.: Nesse projeto temos autenticação via OAuth com o GitHub
+> Obs.: Nesse projeto temos autenticação via OAuth com o GitHub e autenticação normal usuário e senha
 - Clone o repositório e acesse a pasta;
 - Faça uma copia do arquivo `.env.example` para `.env` e preencha com as suas credenciais do GitHub;
 - Instale as dependências com `yarn`;
@@ -38,4 +38,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-Feito com ♥ by joaokvalho 👋🏻 &nbsp;
+Feito com ♥ by @joaokvalho 👋🏻 &nbsp;
