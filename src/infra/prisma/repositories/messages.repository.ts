@@ -12,7 +12,7 @@ export class MessagesRepository implements IMessagesRepository {
     this.prismaClient = new PrismaClient()
   }
 
-  public async findLas3Message(): Promise<IMessage[]> {
+  public async findLast3Message(): Promise<IMessage[]> {
     const messages = await this.prismaClient.message.findMany({
       take: 3,
       orderBy: {

@@ -6,7 +6,7 @@ export class GetLast3MessagesService {
   constructor(private repository: IMessagesRepository) { }
 
   public async execute(): Promise<IMessage[]> {
-    const messages = await this.repository.findLas3Message()
+    const messages = await this.repository.findLast3Message()
 
     return messages
   }
