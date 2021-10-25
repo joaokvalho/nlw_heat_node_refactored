@@ -1,6 +1,6 @@
 import { io } from '../../../server'
 import { ICreateMessage } from '../dto/ICreateMessage.dto'
-import { IMessagesRepository } from '../repositories/imessages.repository'
+import { IMessagesRepository } from '../repositories/IMessagesRepository'
 
 class CreateMessageService {
 

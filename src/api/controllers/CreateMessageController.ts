@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import * as result from '../common/ResponseType'
 
 import { CreateMessageService } from '../../domain/services/CreateMessageService'
-import { MessagesRepository } from '../../infra/prisma/repositories/messages.repository'
+import { MessagesRepository } from '../../infra/prisma/repositories/MessagesRepository'
 
 class CreateMessageController {
   async handle(request: Request, response: Response) {

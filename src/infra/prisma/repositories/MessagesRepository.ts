@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 
 import { ICreateMessage } from "../../../domain/dto/ICreateMessage.dto"
 import { IMessage } from "../../../domain/dto/IMessage.dto"
-import { IMessagesRepository } from '../../../domain/repositories/imessages.repository'
+import { IMessagesRepository } from '../../../domain/repositories/IMessagesRepository'
 
 export class MessagesRepository implements IMessagesRepository {
 

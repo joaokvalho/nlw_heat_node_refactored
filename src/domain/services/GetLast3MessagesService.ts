@@ -1,5 +1,5 @@
 import { IMessage } from '../dto/IMessage.dto'
-import { IMessagesRepository } from '../repositories/imessages.repository'
+import { IMessagesRepository } from '../repositories/IMessagesRepository'
 
 export class GetLast3MessagesService {
 

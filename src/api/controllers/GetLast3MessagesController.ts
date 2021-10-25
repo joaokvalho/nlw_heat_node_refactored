@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 
 import { GetLast3MessagesService } from '../../domain/services/GetLast3MessagesService'
-import { MessagesRepository } from '../../infra/prisma/repositories/messages.repository'
+import { MessagesRepository } from '../../infra/prisma/repositories/MessagesRepository'
 
 class GetLast3MessagesController {
   async handle(request: Request, response: Response) {
