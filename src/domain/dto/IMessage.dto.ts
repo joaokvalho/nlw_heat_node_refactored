@@ -1,5 +1,13 @@
+interface IUser {
+  id: string
+  name: string
+  login: string
+  avatar_url: string
+}
+
 export interface IMessage {
   id?: number
   text: string
-  user_id: String
+  user: IUser
+  created_at: string
 }

@@ -1,28 +1,20 @@
 import { io } from '../../../server'
-import prismaClient from '../../infra/prisma'
-
-interface IMessage {
-  message: string
-  user_id: string
-}
+import { ICreateMessage } from '../dto/ICreateMessage.dto'
+import { IMessagesRepository } from '../repositories/imessages.repository'
 
 class CreateMessageService {
-  async execute({ message, user_id }: IMessage) {
-    const newMessage = await prismaClient.message.create({
-      data: {
-        text: message,
-        user_id
-      },
-      include: {
-        user: true,
-      }
-    })
+
+  constructor(private repository: IMessagesRepository) { }
+
+  async execute(entity: ICreateMessage) {
+    const newMessage = await this.repository.save(entity)
 
     const infoWS = {
       text: newMessage.text,
-      user_id: newMessage.user_id,
+      user_id: newMessage.user.id,
       created_at: newMessage.created_at,
       user: {
+        id: newMessage.user.id,
         name: newMessage.user.name,
         avatar_url: newMessage.user.avatar_url
       }

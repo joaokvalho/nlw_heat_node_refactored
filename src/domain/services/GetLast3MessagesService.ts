@@ -1,19 +1,13 @@
-import prismaClient from '../../infra/prisma'
+import { IMessage } from '../dto/IMessage.dto'
+import { IMessagesRepository } from '../repositories/imessages.repository'
 
-class GetLast3MessagesService {
-  async execute() {
-    const messages = await prismaClient.message.findMany({
-      take: 3,
-      orderBy: {
-        created_at: "desc"
-      },
-      include: {
-        user: true
-      }
-    })
+export class GetLast3MessagesService {
+
+  constructor(private repository: IMessagesRepository) { }
+
+  public async execute(): Promise<IMessage[]> {
+    const messages = await this.repository.findLas3Message()
 
     return messages
   }
 }
-
-export { GetLast3MessagesService }
