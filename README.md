@@ -14,26 +14,24 @@
 ## ✨ Padrões e Princípios
 
 Esse projeto foi desenvolvido com os seguintes Padrões:
-- [Repository pattern]
-- [Service pattern]
-<br >
+- Repository pattern
+- Service pattern
 
 Princípios SOLID:
-- [Dependency inversion principle]
-- [Single-responsibility principle]
-
-<br >
+- Dependency inversion principle
+- Single-responsibility principle
+<br>
+<br>
 ## ✨ Tecnologias
-
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Express](https://expressjs.com/pt-br/)
 - [Prisma](https://www.prisma.io/)
 - [JSON Web Token](https://jwt.io/)
-- [BCrypt] (https://www.npmjs.com/package/bcryptjs)
+- [BCryptJS](https://www.npmjs.com/package/bcryptjs/)
 - [Socket.IO](https://socket.io/)
-- [Celebrate](https://github.com/arb/celebrate)
+- [Celebrate](https://github.com/arb/celebrate/)
 
 ## 🚀 Como executar
 
