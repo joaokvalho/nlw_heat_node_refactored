@@ -8,7 +8,8 @@ export const config = {
     CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
   },
   JWT: {
-    SECRET: process.env.JWT_SECRET
+    SECRET: process.env.JWT_SECRET,
+    EXPIRES_IN: process.env.JWT_EXPIRES || "1d"
   }
 
 }

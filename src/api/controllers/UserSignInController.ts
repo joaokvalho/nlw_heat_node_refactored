@@ -2,35 +2,30 @@ import { Request, Response } from 'express'
 
 import * as result from '../common/ResponseType'
 import { IUser } from '../../domain/dto/IUser'
-import { UserCreateService } from '../../domain/services/UserCreateService'
 import { UsersRepository } from '../../infra/prisma/repositories/UsersRepository'
+import { UserSignInService } from '../../domain/services/UserSignInService'
 import { BCryptHashProvider } from '../../infra/providers/BCryptHashProvider'
 
-class UserSignupController {
-  async handle(request: Request, response: Response) {
-    const {
-      name,
-      login,
-      password,
-      avatar_url
-    } = request.body
+interface IAuthResponse {
+  token: string
+  user: IUser
+}
 
-    const service = new UserCreateService(
+class UserSignInController {
+  async handle(request: Request, response: Response) {
+    const { login, password } = request.body
+
+    const service = new UserSignInService(
       new UsersRepository(),
       new BCryptHashProvider()
     )
     const user = await service.execute({
-      name,
       login,
-      password,
-      avatar_url
+      password
     })
 
-    delete user.password
-    delete user.github_id
-
-    return result.created<IUser>(response, user)
+    return result.ok<IAuthResponse>(response, user)
   }
 }
 
-export { UserSignupController }
+export { UserSignInController }

@@ -5,6 +5,7 @@ import { celebrate, Segments, Joi } from 'celebrate'
 import { Route } from "../common/Route"
 import { UserAuthenticateGithubController } from "../controllers/UserAuthenticateGithubController"
 import { UserSignupController } from "../controllers/UserSignupController"
+import { UserSignInController } from "../controllers/UserSignInController"
 
 class AuthRoutes extends Route {
 
@@ -40,7 +41,7 @@ class AuthRoutes extends Route {
           password: Joi.string().required(),
         },
       }),
-      new UserAuthenticateGithubController().handle
+      new UserSignInController().handle
     )
   }
 }

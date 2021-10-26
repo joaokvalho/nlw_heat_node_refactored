@@ -15,12 +15,12 @@ export class MessagesRepository implements IMessagesRepository {
   public async findLast3Message(): Promise<IMessage[]> {
     const messages = await this.prisma.message.findMany({
       take: 3,
+      include: {
+        user: true
+      },
       orderBy: {
         created_at: "desc"
       },
-      include: {
-        user: true
-      }
     })
 
     return messages

@@ -1,11 +1,14 @@
 import { AppError, AppErrorType } from '../../core/exception/AppError'
 
+import { IHashProvider } from '../../core/providers/IHashProvider'
 import { IUserCreate } from '../dto/IUserCreate.dto'
 import { IUsersRepository } from '../repositories/IUsersRepository'
 
 class UserCreateService {
 
-  constructor(private repository: IUsersRepository) { }
+  constructor(
+    private repository: IUsersRepository,
+    private hashProvider: IHashProvider) { }
 
   async execute(entity: IUserCreate) {
     const { login } = entity
@@ -19,8 +22,13 @@ class UserCreateService {
       })
     }
 
-    const userCreated = await this.repository.save(entity)
-    return userCreated
+    // Create user
+    const hashedPassword = await this.hashProvider.generateHash(entity.password)
+    entity.password = hashedPassword
+    const savedUser = await this.repository.save(entity)
+
+    delete savedUser.password
+    return savedUser
   }
 }
 

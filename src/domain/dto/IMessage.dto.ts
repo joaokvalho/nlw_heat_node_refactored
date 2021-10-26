@@ -3,6 +3,7 @@ interface IUser {
   name: string
   login: string
   avatar_url: string
+  password: string
 }
 
 export interface IMessage {
