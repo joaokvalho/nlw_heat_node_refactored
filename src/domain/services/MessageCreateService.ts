@@ -1,12 +1,12 @@
 import { io } from '../../../server'
-import { ICreateMessage } from '../dto/ICreateMessage.dto'
+import { IMessageCreate } from '../dto/IMessageCreate.dto'
 import { IMessagesRepository } from '../repositories/IMessagesRepository'
 
-class UserCreateMessageService {
+class MessageCreateService {
 
   constructor(private repository: IMessagesRepository) { }
 
-  async execute(entity: ICreateMessage) {
+  async execute(entity: IMessageCreate) {
     const newMessage = await this.repository.save(entity)
 
     const infoWS = {
@@ -26,4 +26,4 @@ class UserCreateMessageService {
   }
 }
 
-export { UserCreateMessageService }
+export { MessageCreateService }

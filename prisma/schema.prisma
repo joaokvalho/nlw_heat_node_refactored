@@ -10,10 +10,11 @@ generator client {
 model User {
   id         String    @id @default(uuid())
   name       String
-  github_id  Int       @unique
+  github_id  Int?      @unique
   avatar_url String
   login      String    @unique
   password   String?
+  created_at DateTime  @default(now())
   Message    Message[]
 
   @@map("users")

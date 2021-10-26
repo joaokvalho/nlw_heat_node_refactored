@@ -1,12 +1,11 @@
-import prismaClient from '../../infra/prisma'
+import { IUsersRepository } from "../repositories/IUsersRepository"
 
 class UserProfileService {
+
+  constructor(private repository: IUsersRepository) { }
+
   async execute(user_id: string) {
-    const user = await prismaClient.user.findFirst({
-      where: {
-        id: user_id
-      }
-    })
+    const user = await this.repository.findById(user_id)
 
     return user
   }

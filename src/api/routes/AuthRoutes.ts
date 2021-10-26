@@ -4,6 +4,7 @@ import { celebrate, Segments, Joi } from 'celebrate'
 
 import { Route } from "../common/Route"
 import { UserAuthenticateGithubController } from "../controllers/UserAuthenticateGithubController"
+import { UserSignupController } from "../controllers/UserSignupController"
 
 class AuthRoutes extends Route {
 
@@ -24,11 +25,11 @@ class AuthRoutes extends Route {
         [Segments.BODY]: {
           name: Joi.string().required(),
           login: Joi.string().required(),
-          avatar_url: Joi.string(),
           password: Joi.string().required(),
+          avatar_url: Joi.string(),
         },
       }),
-      new UserAuthenticateGithubController().handle
+      new UserSignupController().handle
     )
 
     router.post(

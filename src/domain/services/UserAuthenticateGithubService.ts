@@ -1,8 +1,8 @@
 import axios from 'axios'
-import prismaClient from '../../infra/prisma'
 import { sign } from 'jsonwebtoken'
 
 import { config } from '../../core/config/environment'
+import { IUsersRepository } from '../repositories/IUsersRepository'
 
 interface IAccessTokenResponse {
   access_token: string
@@ -17,7 +17,7 @@ interface IUserResponse {
 
 class UserAuthenticateGithubService {
 
-  constructor() { }
+  constructor(private repository: IUsersRepository) { }
 
   async execute(code: string) {
     const url = "https://github.com/login/oauth/access_token"
@@ -41,21 +41,16 @@ class UserAuthenticateGithubService {
 
     const { id, name, login, avatar_url } = response.data
 
-    let user = await prismaClient.user.findFirst({
-      where: {
-        github_id: id,
-      }
-    })
+    let user = await this.repository.findByGithubId(id)
 
     if (!user) {
-      user = await prismaClient.user.create({
-        data: {
-          github_id: id,
-          name,
-          login,
-          avatar_url,
-        }
-      })
+      const data = {
+        name,
+        login,
+        github_id: id,
+        avatar_url,
+      }
+      user = await this.repository.save(data)
     }
 
     const token = sign(
@@ -73,6 +68,7 @@ class UserAuthenticateGithubService {
       }
     )
 
+    delete user.password
     return {
       token, user
     }

@@ -1,19 +1,19 @@
-import { PrismaClient } from '@prisma/client'
+import prismaClient from '../'
 
-import { ICreateMessage } from "../../../domain/dto/ICreateMessage.dto"
+import { IMessageCreate } from "../../../domain/dto/IMessageCreate.dto"
 import { IMessage } from "../../../domain/dto/IMessage.dto"
 import { IMessagesRepository } from '../../../domain/repositories/IMessagesRepository'
 
 export class MessagesRepository implements IMessagesRepository {
 
-  private prismaClient
+  private prisma
 
   constructor() {
-    this.prismaClient = new PrismaClient()
+    this.prisma = prismaClient
   }
 
   public async findLast3Message(): Promise<IMessage[]> {
-    const messages = await this.prismaClient.message.findMany({
+    const messages = await this.prisma.message.findMany({
       take: 3,
       orderBy: {
         created_at: "desc"
@@ -26,19 +26,19 @@ export class MessagesRepository implements IMessagesRepository {
     return messages
   }
 
-  public async save({ message, user_id }: ICreateMessage): Promise<IMessage> {
+  public async save({ message, user_id }: IMessageCreate): Promise<IMessage> {
     const data = {
       text: message,
       user_id
     }
-    const createdMessage = await this.prismaClient.message.create({
+    const messageCreated = await this.prisma.message.create({
       data,
       include: {
         user: true,
       }
     })
 
-    return createdMessage
+    return messageCreated
   }
 
 }
