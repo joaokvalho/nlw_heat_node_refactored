@@ -20,8 +20,7 @@ Esse projeto foi desenvolvido com os seguintes Padrões:
 Princípios SOLID:
 - Dependency inversion principle
 - Single-responsibility principle
-<br>
-<br>
+
 ## ✨ Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
