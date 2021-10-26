@@ -2,7 +2,7 @@ import { io } from '../../../server'
 import { ICreateMessage } from '../dto/ICreateMessage.dto'
 import { IMessagesRepository } from '../repositories/IMessagesRepository'
 
-class CreateMessageService {
+class UserCreateMessageService {
 
   constructor(private repository: IMessagesRepository) { }
 
@@ -26,4 +26,4 @@ class CreateMessageService {
   }
 }
 
-export { CreateMessageService }
+export { UserCreateMessageService }

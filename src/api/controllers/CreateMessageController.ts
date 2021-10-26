@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 import * as result from '../common/ResponseType'
 
-import { CreateMessageService } from '../../domain/services/CreateMessageService'
+import { UserCreateMessageService } from '../../domain/services/UserCreateMessageService'
 import { MessagesRepository } from '../../infra/prisma/repositories/MessagesRepository'
 
 class CreateMessageController {
@@ -10,7 +10,7 @@ class CreateMessageController {
     const { user_id } = request
     const { message } = request.body
 
-    const service = new CreateMessageService(
+    const service = new UserCreateMessageService(
       new MessagesRepository()
     )
 

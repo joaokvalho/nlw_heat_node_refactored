@@ -1,5 +1,8 @@
-import "dotenv/config"
 import express, { Application } from "express"
+
+import "dotenv/config"
+import 'express-async-errors'
+import { errors } from 'celebrate'
 import cors from 'cors'
 
 import { config } from './core/config/environment'
@@ -47,8 +50,8 @@ export class App {
       route.applyRoutes(this.application)
     }
 
-    // // Get errors validation routes (celebrate)
-    // this.application.use(errors())
+    // Get errors validation routes (celebrate)
+    this.application.use(errors())
 
     // Get global errors api
     this.application.use(AppGlobalError)
