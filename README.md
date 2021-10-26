@@ -11,6 +11,18 @@
   <img src="https://img.shields.io/static/v1?label=NLW&message=Heat&color=8257E5&labelColor=000000" alt="NLW Heat" />
 </p>
 
+## ✨ Padrões e Princípios
+
+Esse projeto foi desenvolvido com os seguintes Padrões:
+- [Repository pattern]
+- [Service pattern]
+<br >
+
+Princípios SOLID:
+- [Dependency inversion principle]
+- [Single-responsibility principle]
+
+<br >
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -19,7 +31,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Express](https://expressjs.com/pt-br/)
 - [Prisma](https://www.prisma.io/)
 - [JSON Web Token](https://jwt.io/)
+- [BCrypt] (https://www.npmjs.com/package/bcryptjs)
 - [Socket.IO](https://socket.io/)
+- [Celebrate](https://github.com/arb/celebrate)
 
 ## 🚀 Como executar
 
