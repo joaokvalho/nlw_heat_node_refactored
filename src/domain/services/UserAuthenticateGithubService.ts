@@ -15,7 +15,9 @@ interface IUserResponse {
   avatar_url: string
 }
 
-class AuthenticateUserService {
+class UserAuthenticateGithubService {
+
+  constructor() { }
 
   async execute(code: string) {
     const url = "https://github.com/login/oauth/access_token"
@@ -78,4 +80,4 @@ class AuthenticateUserService {
   }
 }
 
-export { AuthenticateUserService }
+export { UserAuthenticateGithubService }

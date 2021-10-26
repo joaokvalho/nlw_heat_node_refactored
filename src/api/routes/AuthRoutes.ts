@@ -3,7 +3,7 @@ import { Router } from "express"
 import { celebrate, Segments, Joi } from 'celebrate'
 
 import { Route } from "../common/Route"
-import { AuthenticateUserController } from "../controllers/AuthenticateUserController"
+import { UserAuthenticateGithubController } from "../controllers/UserAuthenticateGithubController"
 
 class AuthRoutes extends Route {
 
@@ -15,7 +15,7 @@ class AuthRoutes extends Route {
           code: Joi.string().required(),
         },
       }),
-      new AuthenticateUserController().handle
+      new UserAuthenticateGithubController().handle
     )
 
     router.post(
@@ -28,7 +28,7 @@ class AuthRoutes extends Route {
           password: Joi.string().required(),
         },
       }),
-      new AuthenticateUserController().handle
+      new UserAuthenticateGithubController().handle
     )
 
     router.post(
@@ -39,7 +39,7 @@ class AuthRoutes extends Route {
           password: Joi.string().required(),
         },
       }),
-      new AuthenticateUserController().handle
+      new UserAuthenticateGithubController().handle
     )
   }
 }

@@ -4,6 +4,7 @@ import cors from 'cors'
 
 import { config } from './core/config/environment'
 import { Route } from "./api/common/Route"
+import { AppGlobalError } from "./api/middlewares/AppGlobalError"
 
 export class App {
   private application: Application
@@ -49,8 +50,8 @@ export class App {
     // // Get errors validation routes (celebrate)
     // this.application.use(errors())
 
-    // // Get global errors api
-    // this.application.use(AppGlobalError)
+    // Get global errors api
+    this.application.use(AppGlobalError)
   }
 
   public routes(routes: Route[] = []): express.Application {
