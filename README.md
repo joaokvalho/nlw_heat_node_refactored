@@ -18,6 +18,7 @@ Esse projeto foi desenvolvido com os seguintes Padrões:
 - Controller design pattern
 - Service pattern
 - Repository pattern
+- Clean Architecture
 
 Princípios SOLID:
 - Dependency inversion principle
