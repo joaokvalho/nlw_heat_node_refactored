@@ -1,4 +1,4 @@
-<h1 align="center">NLW Heat Refactored</h1>
+<h1 align="center">API Note com prisma</h1>
 
 <p align="center">
   <a href="#-padrões-e-princípios">Padrões e Princípios</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
